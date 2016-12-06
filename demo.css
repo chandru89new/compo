@@ -1,0 +1,65 @@
+@import url('https://fonts.googleapis.com/css?family=Didact+Gothic|Inconsolata|Muli|News+Cycle|PT+Mono|Roboto+Condensed|Rubik');
+
+body {
+	font-family: 'Rubik', sans-serif;
+	font-weight: 300;
+	font-size: 100%;
+	color: #343434;
+}
+
+header {
+	padding: 20px 15px;
+	background: #ED6A5A;
+	color: #fff;
+}
+header h1 {
+	font-size: 150%;
+}
+
+section {
+	padding: 30px 15px;
+	border-bottom: 1px solid #ddd;
+}
+
+section h1 {
+	display: block;
+	text-align: center;
+	margin-bottom: 15px;
+	font-size: 150%;
+}
+section p {
+	margin-bottom: 15px;
+	font-size: 1em;
+	line-height: 1.4em;
+}
+section p code {
+	font-size: 14px;
+	padding: 3px 6px;
+	background: #eee;
+	border-radius: 4px;
+	font-family: 'PT Mono', monospace;
+}
+
+.components {
+	text-align: center;
+	margin-top: 30px;
+}
+.components > button, .components a {
+	display: block;
+	width: 75%;
+	margin: 10px auto;
+}
+
+
+
+/* helpers */
+
+.alnCenter {
+	text-align:center;
+}
+.fltLeft {
+	float: left;
+}
+.fltRight {
+	float: right;
+}
