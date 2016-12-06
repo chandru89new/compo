@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang='en-us'>
+<head>
+	<meta charset=utf-8>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Mobile Web Components</title>
+	<link href='myreset.css' rel='stylesheet' />
+	<link href='demo.css' rel='stylesheet' />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+</head>
+<body>
+
+<header>
+	<h1>Demo</h1>
+</header>
+
+<section>
+
+	<h1 class="alnCenter">Buttons</h1>
+	
+	<p>
+		Buttons can be created by using the <code>button</code> tag or by adding <code>class="button"</code> to the <code>a</code> tag.
+	</p>
+
+	<p>
+		For additional styling: <br>
+		<code>&lt;a class="button buttonPrimary"&gt;</code>
+	</p>
+	
+	<div class="components alnCenter">
+		<button type="button">
+			&lt;button&gt;
+		</button>
+		<a href="javascript:void(0);" class="button">
+			&lt;a&gt; button
+		</a>
+		<a href="javascript:void(0);" class="button buttonPrimary" data-loading="true">
+			buttonPrimary
+		</a>
+		<a href="javascript:void(0);" class="button buttonDisabled">
+			buttonDisabled
+		</a>
+	</div>
+
+	<p>With some jQuery, it's possible to have a loading state for buttons.</p>
+
+	<div class="components">
+		<a href="javascript:void(0);" class="button buttonPrimary" id="testButton">
+			Tap here
+		</a>
+	</div>
+
+</section>
+
+<section>
+	<h1 class='alnCenter'>Toggles</h1>
+
+	<p>
+		Toggles are basically
+		<code>&lt;input type="checkbox"&gt;</code>
+		with a class.
+	</p>
+
+	<p>
+		The default toggle is 
+		<code>class="toggleSimple"</code> 
+		and the other toggle is
+		<code>class="toggleAlt"</code>
+	</p>
+
+	<div class="components alnCenter">
+		
+		<div class="fltLeft" style="padding: 5px 0;">
+			<label for='toggle1'>toggleSimple</label>
+		</div>
+		<div class="fltRight" style="margin-right: 15px;">
+			<input type="checkbox" id="toggle1" class="toggleSimple">
+		</div>
+		<div class="clr"></div>
+
+	</div>
+
+	<div class="components">
+		
+		<div class="fltLeft" style="padding: 5px 0;">
+			<label for='toggle2'>toggleAlt</label>
+		</div>
+		<div class="fltRight" style="margin-right: 15px;">
+			<input type="checkbox" id="toggle2" class="toggleAlt">
+		</div>
+		<div class="clr"></div>
+		
+	</div>
+
+	<p style="margin-top: 30px;">
+		Add <code>toggleDual</code> to each input class and you can use the toggle for switch options (instead of true and false).
+	</p>
+
+	<div class="components">
+		<p style="margin: 25px auto;">
+			<input type="checkbox" id="toggle2" class="toggleSimple toggleDual">
+		</p>
+		<p  style="margin: 25px auto;">
+			<input type="checkbox" id="toggle2" class="toggleAlt toggleDual">	
+		</p>
+	</div>
+</section>
+
+<section>
+	<h1 class="alnCenter">Checkbox</h1>
+	<p>Any checkbox-type <code>input</code> with a <code>class="checkbox"</code></p>
+
+	<div class="components">
+		<input type="checkbox" id="checkbox1" class="checkbox">
+	</div>
+</section>
+
+<section>
+	<h1 class="alnCenter">Text field</h1>
+	<p>All text-related <code>input</code>s are <code>width: 100%</code></p>
+	<p>This includes <code>type="text"</code>, <code>type="email"</code> and <code>type="password"</code></p>
+	
+	<div class="components alnCenter">
+		<div class="componentsUnit">
+			<input type="text" name="" value="" placeholder="placeholder">
+		</div>
+
+		<div class="componentsUnit">
+			<input type="text" name="" value="value" placeholder="placeholder">
+		</div>
+
+		<div class="componentsUnit">
+			<input type="password" name="" value="" placeholder="password">
+		</div>
+	</div>
+
+	<p>Here's a password field with a 'show password' option. Because on mobile phones, it's better to have this option.</p>
+
+	<div class="components">
+		
+		<div class="passwordToggle">
+			<input type="password" name="" value="" placeholder="type a password">
+			<span class="toggle fa fa-eye-slash"></span>
+		</div>
+
+	</div>
+
+	<p>Note that I've used jQuery for the toggle + FontAwesome for the icons to make this possible.</p>
+</section>
+
+<script type="text/javascript" src="jquery.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	
+	$('.passwordToggle > .toggle').click(function(){
+		targetInput = $(this).parent().find("input");
+		targetInputAttr = targetInput.attr("type");
+
+		if (targetInputAttr == "password") {
+			targetInput.attr("type", "text");
+		} else {
+			targetInput.attr("type", "password");
+		}
+
+		$(this).toggleClass('fa-eye fa-eye-slash');
+	});
+
+	$('a#testButton').click(function(e){
+		var elem = $(this);
+
+
+		if (elem.hasClass('buttonClicked') == false) {
+			var loader = "<span class='loadingSpinner fa fa-spin fa-cog'></span>";
+			elem.text("Oh my god, you did!");
+			elem.addClass('buttonClicked');
+			elem.append(loader);
+		}
+	});
+
+});
+</script>
+</body>
+</html>
