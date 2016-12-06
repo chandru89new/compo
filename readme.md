@@ -10,7 +10,7 @@ This is not aimed as a complete framework / design library. This is more of a st
 
 Demo at http://druchan.com/compo/demo/
 
-View on mobile phone or responsive mode (in desktop web). 
+View on mobile phone or responsive mode (in desktop web).  
 
 ## Upcoming / to-do
 
